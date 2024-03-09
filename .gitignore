@@ -1,0 +1,12 @@
+.vscode/
+.idea/
+venv/
+.venv/
+**/.pytest_cache/**
+**/__pycache__/**
+**/.hypothesis/**
+app/media/
+.DS_Store
+.env
+.coverage
+.netrc
