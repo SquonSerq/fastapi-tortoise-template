@@ -1,23 +1,26 @@
 build:
-	docker compose build
+	@docker compose build
 
 build_no_cache:
-	docker compose build --no-cache
+	@docker compose build --no-cache
 
 start_db:
-	docker compose up db -d
+	@docker compose up db -d
 
 start_dev:
-	docker compose up app -d
+	@docker compose up app -d
 
 stop:
-	docker compose down
+	@docker compose down
 
 initdb:
-	python cli.py init-db
+	@python cli.py init-db
 
 makemigrations:
-	python cli.py make-migrations
+	@python cli.py make-migrations
 
 migrate: 
-	python cli.py migrate
+	@python cli.py migrate
+
+showmigrations:
+	@aerich history

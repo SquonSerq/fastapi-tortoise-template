@@ -32,6 +32,8 @@ Create migrations: `make makemigrations`
 
 Apply migrations: `make migrate`
 
+Show migrations: `make showmigrations`
+
 ## Project access:
 
 Go to [https://localhost:5000/](https://localhost:5000/) to access FastAPI swagger.
