@@ -27,7 +27,9 @@ make start_dev
 ### Supported local commands:
 
 Init DB: `make initdb`
+
 Create migrations: `make makemigrations`
+
 Apply migrations: `make migrate`
 
 ## Project access:
