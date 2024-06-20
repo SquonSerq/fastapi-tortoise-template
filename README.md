@@ -1,6 +1,18 @@
-# FastAPI + Tortoise ORM template
+# CookieCutter template for FastAPI + Tortoise ORM
 
-## Application start
+## Get template from CookieCutter:
+
+To get this template for your project, you need to install [CookieCutter](https://github.com/cookiecutter/cookiecutter?tab=readme-ov-file#installation) on your machine.
+
+Then, run:
+
+```
+cookiecutter git@github.com:SquonSerq/fastapi-tortoise-template.git
+```
+
+And follow instructions. Done! You are awesome!
+
+## Application start:
 
 ### Install dependencies:
 ```
