@@ -5,8 +5,8 @@
 ### Install dependencies:
 ```
 python -m venv .venv
-poetry install
 source .venv/bin/activate
+poetry install
 ```
 
 ### Template start via docker:
