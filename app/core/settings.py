@@ -19,7 +19,7 @@ class APPSettings(BaseSettings):
     ENV: str = config("ENV", cast=str, default="TEST")
 
     POSTGRES_SERVER: str = config("POSTGRES_SERVER", cast=str, default="127.0.0.1")
-    POSTGRES_PORT: str = config("POSTGRES_PORT", cast=int, default=5432)
+    POSTGRES_PORT: int = config("POSTGRES_PORT", cast=int, default=5432)
     POSTGRES_USER: str = config("POSTGRES_USER", cast=str, default="postgres")
     POSTGRES_PASSWORD: str = config("POSTGRES_PASSWORD", cast=str, default="postgres")
     POSTGRES_DB: str = config("POSTGRES_DB", cast=str, default="postgres")
