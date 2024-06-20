@@ -1,16 +1,17 @@
 from functools import lru_cache
-from typing import Optional, Dict, Any
+from typing import Optional
 
-from pydantic import validator, PostgresDsn
-from pydantic_settings import BaseSettings
+from pydantic_settings import BaseSettings, SettingsConfigDict
 from starlette.config import Config
 from starlette.datastructures import CommaSeparatedStrings
-import logging
 
 config = Config(".env")
 
 
 class APPSettings(BaseSettings):
+    model_config = SettingsConfigDict(
+        extra="ignore",
+    )
     PROJECT_NAME: str = config("PROJECT_NAME", cast=str, default="TemplateService")
     VERSION: str = config("VERSION", cast=str, default="1.0.0")
 
@@ -57,25 +58,6 @@ class APPSettings(BaseSettings):
     )
     MIN_CONNECTIONS_COUNT: int = config("MIN_CONNECTIONS_COUNT", cast=int, default=1)
     MAX_CONNECTIONS_COUNT: int = config("MAX_CONNECTIONS_COUNT", cast=int, default=10)
-
-    DATABASE_URL: Optional[PostgresDsn] = None
-
-    @validator("DATABASE_URL", pre=True)
-    def assemble_db_connection(cls, v: Optional[str], values: Dict[str, Any]) -> Any:
-        if isinstance(v, str):
-            return v
-        url = PostgresDsn.build(
-            scheme="postgres",
-            username=values.get("POSTGRES_USER"),
-            password=values.get("POSTGRES_PASSWORD"),
-            host=values.get("POSTGRES_SERVER"),
-            port=int(values.get("POSTGRES_PORT")),
-            path=f"{values.get('POSTGRES_DB') or ''}",
-        )
-        return url.unicode_string()
-
-    class Config:
-        env_file = ".env"
 
 
 @lru_cache()

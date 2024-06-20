@@ -1,12 +1,69 @@
-.vscode/
-.idea/
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# virtual environments
 venv/
+env/
+ENV/
 .venv/
-**/.pytest_cache/**
-**/__pycache__/**
-**/.hypothesis/**
-app/media/
-.DS_Store
-.env
+.pytest_cache/
+
+# VS Code settings
+.vscode/
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Coverage reports
+htmlcov/
 .coverage
-.netrc
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+
+# Pytest
+.pytest_cache/
+
+# Environments and environment variables
+.env
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Django stuff:
+*.log
+
+# Sphinx documentation
+docs/_build/
+
+# pyproject.toml
+*.lock
+
+# Local SQLite database
+*.sqlite3
+
+# C extensions
+*.so
+
+# MacOS stuff
+.DS_Store
+
+# Linux/MacOS garbage
+Thumbs.db

@@ -2,6 +2,7 @@ import logging
 import sys
 
 from fastapi import FastAPI
+from contextlib import asynccontextmanager
 
 from app.api.routes.router import grouping_router
 from app.core import config
@@ -16,6 +17,13 @@ if config.SQL_DEBUG:
     logger_db_client.addHandler(sh)
 
 
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    create_start_app_handler(app)
+    yield
+    create_stop_app_handler(app)
+
+
 def get_application() -> FastAPI:
     application = FastAPI(
         debug=config.DEBUG,
@@ -24,10 +32,8 @@ def get_application() -> FastAPI:
         description="Project description",
         version=config.VERSION,
         redirect_slashes=True,
+        lifespan=lifespan,
     )
-
-    application.add_event_handler("startup", create_start_app_handler(application))
-    application.add_event_handler("shutdown", create_stop_app_handler(application))
 
     application.include_router(grouping_router)
 

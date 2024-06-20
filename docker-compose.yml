@@ -1,0 +1,35 @@
+version: '3.10'
+
+services:
+  app:
+    build:
+      dockerfile: Dockerfile
+    working_dir: /app
+    container_name: fastapi-tortoise-template-api
+    restart: always
+    command: >
+      sh -c "python cli.py init-db && python cli.py migrate && uvicorn app.main:app --host 0.0.0.0 --port 5000 --workers 4"
+    env_file:
+      - .env
+    ports:
+      - "${API_PORT:-5000}:5000"
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+
+  db:
+    image: postgres:16.3
+    command: ["postgres",]
+    environment:
+      PGDATA: /data/postgres
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    env_file:
+      - .env
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - ${APP_ROOT}/postgres_data:/data/postgres
+    restart: always
