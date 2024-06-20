@@ -27,9 +27,9 @@ async def lifespan(app: FastAPI):
 def get_application() -> FastAPI:
     application = FastAPI(
         debug=config.DEBUG,
-        title=config.PROJECT_NAME,
-        summary="Project summary",
-        description="Project description",
+        title="{{ cookiecutter.project_name }}",
+        summary="{{ cookiecutter.project_summary }}",
+        description="{{ cookiecutter.project_description }}",
         version=config.VERSION,
         redirect_slashes=True,
         lifespan=lifespan,

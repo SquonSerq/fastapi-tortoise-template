@@ -1,0 +1,15 @@
+{
+  "project_name": "fastapi tortoise orm project name",
+  "project_description": "fastapi tortoise orm project description",
+  "project_summary": "fastapi tortoise orm project summary",
+  "app_container_name": "fastapi-tortoise-app",
+  "db_container_name": "fastapi-tortoise-db",
+  "run_container_as_user_id": 1000,
+  "run_container_as_group_id": 1000,
+  "app_port": 5000,
+  "db_host": "your local ip address or remote db host",
+  "db_port": 5432,
+  "db_user": "postgres",
+  "db_password": "superpassword",
+  "db_name": "app"
+}

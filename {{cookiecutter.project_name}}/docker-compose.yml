@@ -5,8 +5,9 @@ services:
     build:
       dockerfile: Dockerfile
     working_dir: /app
-    container_name: fastapi-tortoise-template-api
+    container_name: {{ cookiecutter.app_container_name }}
     restart: always
+    user: {{ cookiecutter.run_container_as_user_id}}:{{ cookiecutter.run_container_as_group_id }}
     command: >
       sh -c "python cli.py init-db && python cli.py migrate && uvicorn app.main:app --host 0.0.0.0 --port 5000 --workers 4"
     env_file:
@@ -21,6 +22,7 @@ services:
   db:
     image: postgres:16.3
     command: ["postgres",]
+    container_name: {{ cookiecutter.db_container_name }}
     environment:
       PGDATA: /data/postgres
       POSTGRES_DB: ${POSTGRES_DB}
