@@ -31,5 +31,8 @@ services:
     ports:
       - "${POSTGRES_PORT:-5432}:5432"
     volumes:
-      - ${APP_ROOT}/postgres_data:/data/postgres
+      - postgres_data:/data/postgres
     restart: always
+
+volumes:
+  postgres_data:
