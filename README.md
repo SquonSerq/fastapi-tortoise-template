@@ -46,4 +46,4 @@ I am sure that template needs some tuning but should work from the box already.
 
 ## TODO:
 
-- [] Add tests templates with pytest
+- [ ] Add tests templates with pytest
