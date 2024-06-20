@@ -35,3 +35,15 @@ Apply migrations: `make migrate`
 ## Project access:
 
 Go to [https://localhost:5000/](https://localhost:5000/) to access FastAPI swagger.
+
+## Template status:
+
+I am open for suggestions/reports in issues on Github.
+
+I am sure that template needs some tuning but should work from the box already.
+
+**NOT READY FOR PRODUCTION.** If you want to use this template in production you need to tune it yourself for your needs.
+
+## TODO:
+
+- [] Add tests templates with pytest
