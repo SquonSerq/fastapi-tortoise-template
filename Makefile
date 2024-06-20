@@ -8,7 +8,7 @@ start_db:
 	docker compose up db -d
 
 start_dev:
-	docker compose up api -d
+	docker compose up app -d
 
 stop:
 	docker compose down
